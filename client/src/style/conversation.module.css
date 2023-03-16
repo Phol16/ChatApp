@@ -1,0 +1,15 @@
+.convContainer{
+  display: flex;
+  padding: 5px;
+  cursor: pointer;
+}
+.convContainer:hover{
+  background-color: rgb(112, 112, 112);
+}
+.photo{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-right: 20px;
+}

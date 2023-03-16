@@ -1,39 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import io from 'socket.io-client'
-
-const socket = io.connect('http://localhost:3500');
+import React, { useEffect, useState } from 'react';
+import Conversation from '../components/Conversation';
+import Message from '../components/Message';
+import style from '../style/mainPage.module.css';
 
 const MainPage = () => {
-  const[message,setMessage] = useState()
-  const[received,setReceived] = useState()
-  const[room,setRoom] = useState()
-
-  const handleRoom = ()=>{
-    if(room !== ''){
-      socket.emit('join', room)//room
-    }
-  }
-
-  const handleMessage = ()=>{
-    socket.emit('send', {message, room}) // emit the message by sending the message and what room to join
-  }
-
-  useEffect(()=>{
-    console.log('hello')
-    socket.on('rec',(data)=>{
-      setReceived(data.message)
-    })
-  },[socket]) //this will rerender if theres an update or and event is emmitted in the socket
-
   return (
-    <div>
-      <p>{received}</p>
-      <input type="text" onChange={({target:{value}})=>{setRoom(value)}}/>
-      <button onClick={handleRoom}>room</button>
-      <input type="text" onChange={({target:{value}})=>{setMessage(value)}}/>
-      <button onClick={handleMessage}>Send Message</button>
+    <div className={style.container}>
+      <div className={style.userContainer}>
+        <section className={style.wrapper}>
+          <Conversation/>
+        </section>
+      </div>
+      <div className={style.chatBoxContainer}>
+        <section className={`${style.wrapper} ${style.chatBoxWrapper}`}>
+          <main className={style.chatBoxTop}>
+            <Message/>
+            <Message own={true}/>
+            <Message/>
+          </main>
+          <main className={style.chatBoxBottom}>
+            <textarea placeholder='write something...' className={style.chatMessageInput}></textarea>
+            <button className={style.submitButton}>Send</button>
+          </main>
+        </section>
+      </div>
+      <div className={style.profileContainer}>
+        profile
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

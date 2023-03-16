@@ -1,0 +1,45 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.userContainer{
+  flex:3;
+}
+.chatBoxContainer{
+  flex:5;
+}
+.profileContainer{
+  flex:3;
+}
+.wrapper{
+  padding: 10px;
+  height: 100%;
+}
+.chatBoxWrapper{
+  display: flex;
+  flex-direction: column;
+}
+.chatBoxTop{
+  height: 100%;
+  overflow: auto;
+  padding-right: 10px;
+}
+.chatBoxBottom{
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chatMessageInput{
+  width: 80%;
+  height: 90px;
+  padding: 10px;
+}
+.submitButton{
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
