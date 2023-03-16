@@ -1,10 +1,11 @@
 import{Route, Routes} from 'react-router-dom'
-import IntroLayout from '../layouts/IntroLayout'
+import LoginLayout from '../layouts/LoginLayout'
+
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<IntroLayout/>}/>
+      <Route path='/' element={<LoginLayout/>}/>
     </Routes>
   )
 }

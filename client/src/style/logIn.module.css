@@ -1,0 +1,54 @@
+.logInContainer{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.loginImg{
+  object-fit: cover;
+  width: 50vw;
+  height: 100vh;
+  clip-path: polygon(0% 0%, 53.9% 0%, 100% 100%, 0% 100%);
+}
+.logIn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logInHeader{
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+.logInForm{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px;
+}
+.logInForm label{
+  font-size: medium;
+}
+.logInForm input{
+  font-size: small;
+  width: 100px;
+}
+.logInForm button{
+  width: fit-content;
+  align-self: flex-end;
+  font-size: small;
+  font-weight: 200;
+  padding: 5px;
+}
+@media only screen and (min-width:768px) {
+  .logInHeader{
+    font-size: 50px;
+  }
+  .logInForm label{
+    font-size: x-large;
+  }
+  .logInForm input{
+    font-size: medium;
+    width: 300px;
+  }
+  .logInForm button{
+    font-size: large;
+    font-weight: 200;
+  }
+}
