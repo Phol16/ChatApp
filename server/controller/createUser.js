@@ -1,9 +1,8 @@
 import User from "../model/user.js";
 
 const createUser = async(req, res)=>{
-  const {username, fullName, image} = req.body
+  const { username } = req.body
 
-  console.log(req.body);
   try {
     const newUser = new User ({
       username,

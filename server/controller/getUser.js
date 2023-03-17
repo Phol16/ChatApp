@@ -5,7 +5,12 @@ const getUser = async(req, res)=>{
   const find = await User.findOne({username})
 
   if(!find){
-    return res.status(404).json({message: 'no user found'})
+    const newUser = new User({
+      username,
+    })
+    const response = await newUser.save()
+
+    return res.status(200).json({data:response})
   }
 
   res.status(200).json({
