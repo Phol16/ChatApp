@@ -1,14 +1,14 @@
-import User from "../model/user"
+import User from "../model/user.js"
 
 const getUser = async(req, res)=>{
   const { username } = req.body
-  const find = await User.find({username})
+  const find = await User.findOne({username})
 
-  if(find){
-    return res.statu(404).json({message: 'no user found'})
+  if(!find){
+    return res.status(404).json({message: 'no user found'})
   }
 
-  res.stauts(200).json({
+  res.status(200).json({
    data : find
   })
 }

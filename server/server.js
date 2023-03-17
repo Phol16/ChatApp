@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import http from 'http';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
-import user from './routes/user.js'
+import users from './routes/user.js'
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 const ChatPort = process.env.CHATPORT;
 const mongoDB = process.env.MONGODBURI;
 
-app.use('/', user)
+app.use('/users', users)
 
 const server = http.createServer(app); // creating a http server
 const io = new Server(server, {

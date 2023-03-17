@@ -1,19 +1,14 @@
-import app from "../app.js";
 import User from "../model/user.js";
-import { CloudinaryService } from "../utils/cloudinaryService.js";
 
 const createUser = async(req, res)=>{
   const {username, fullName, image} = req.body
+
+  console.log(req.body);
   try {
-    const cloudinary = app.get(CloudinaryService.cloudinaryName)
-    
-    const cloudImage = await  cloudinary.uploader.upload(image,{
-      upload_preset: 'ChatApp',
-    })
     const newUser = new User ({
       username,
       fullName,
-      image: cloudImage.url,
+      image,
     })
     
     const saved = await newUser.save()
