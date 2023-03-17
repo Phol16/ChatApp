@@ -14,7 +14,7 @@ const LoginPage = () => {
         },
         body:JSON.stringify({username})
       }).then((res)=>res.json())
-      console.log(response)
+      window.location.replace('/home')
   }
 
   return (
