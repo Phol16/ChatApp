@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { Types } from 'mongoose';
 import Message from '../model/message.js';
 
 const router = Router();

@@ -7,11 +7,11 @@ const MessageSchema = new Schema({
     type:SchemaTypes.Array
   },
  receiverId:{
-  type:SchemaTypes.String,
+  type:SchemaTypes.ObjectId,
   ref:'user'
  },
  senderId:{
-  type:SchemaTypes.String,
+  type:SchemaTypes.ObjectId,
   ref:'user'
  },
  text:{
