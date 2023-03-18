@@ -3,11 +3,16 @@ import mongoose from 'mongoose';
 const { Schema, model, SchemaTypes } = mongoose;
 
 const MessageSchema = new Schema({
- conversationId:{
+  membersId:{
+    type:SchemaTypes.Array
+  },
+ receiverId:{
   type:SchemaTypes.String,
+  ref:'user'
  },
- sender:{
+ senderId:{
   type:SchemaTypes.String,
+  ref:'user'
  },
  text:{
   type:SchemaTypes.String,

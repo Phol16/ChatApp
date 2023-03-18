@@ -7,6 +7,7 @@ const getUser = async(req, res)=>{
   if(!find){
     const newUser = new User({
       username,
+      fullName: username,
     })
     const response = await newUser.save()
 

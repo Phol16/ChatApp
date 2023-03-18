@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { Types } from 'mongoose';
 import Message from '../model/message.js';
 
 const router = Router();
@@ -16,7 +17,7 @@ router.post('/', async (req, res) => {
 router.get('/', async(req,res)=>{
   try {
     const messages = await Message.find({
-      conversationId: req.params.conversationId,
+      $and:[{membersId:{$in:req.query.receiverId}}, {membersId:{$in:req.query.senderId}}]
     })
     res.status(200).json({data:messages})
   } catch (error) {
