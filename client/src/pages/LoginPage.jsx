@@ -26,7 +26,7 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit} className={style.logInForm}>
       <label htmlFor="username">Username:</label>
       <input type="username" id='username' name='username' placeholder='Username'/>
-      <button type='submit'>Log In</button>
+      <button type='submit'>Enter</button>
       </form>
     </div>
   )

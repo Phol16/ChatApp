@@ -13,8 +13,16 @@
   flex:3;
 }
 .wrapper{
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   height: 100%;
+}
+.wrapper button{
+  background-color: transparent;
+  color: white;
+  outline-color: transparent;
+  border: none;
 }
 .chatBoxWrapper{
   display: flex;
@@ -42,4 +50,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.noConvo{
+  font-size: xx-large;
+  opacity: 0.5;
 }
