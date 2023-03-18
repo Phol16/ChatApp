@@ -4,11 +4,23 @@ import Message from '../components/Message';
 import style from '../style/mainPage.module.css';
 
 const MainPage = () => {
+  const [users, setUsers] = useState([])
+
+  useEffect(()=>{
+    const fetchData = async()=>{
+      const response = await fetch(`http://localhost:3500/users`).then((res)=>res.json())
+      setUsers(response.data)
+    }
+    fetchData()
+  },[])
   return (
     <div className={style.container}>
       <div className={style.userContainer}>
         <section className={style.wrapper}>
-          <Conversation/>
+          {users.map((e)=>{
+            return <Conversation name={e.fullName}/>
+          })
+          }
         </section>
       </div>
       <div className={style.chatBoxContainer}>

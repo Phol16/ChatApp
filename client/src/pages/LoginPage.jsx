@@ -1,7 +1,9 @@
 import React from 'react'
 import style from '../style/logIn.module.css'
+import {useNavigate} from 'react-router-dom'
 
 const LoginPage = () => {
+  const navigate = useNavigate()
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
@@ -14,7 +16,8 @@ const LoginPage = () => {
         },
         body:JSON.stringify({username})
       }).then((res)=>res.json())
-      window.location.replace('/home')
+      localStorage.setItem('User', response.data._id)
+      navigate('/home')
   }
 
   return (
