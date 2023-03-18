@@ -60,7 +60,7 @@ const MainPage = () => {
             {
               receiver ? (
                   messages.map((e)=>{
-                  return <Message text={e.text} own={e.senderId !== sender ? false : true} key={e._id} />
+                  return <Message data={e} own={e.senderId !== sender ? false : true} key={e._id} />
                   })
               ) : <span className={style.noConvo}>Open a conversation...</span>
             }
