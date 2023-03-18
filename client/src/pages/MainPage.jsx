@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Conversation from '../components/Conversation';
 import Message from '../components/Message';
 import Profile from '../components/Profile';
@@ -10,6 +10,8 @@ const MainPage = () => {
   const [receiver, setReceiver] = useState(null);
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState('');
+
+  const scrollRef = useRef()
   const sender = localStorage.getItem('User');
 
   useEffect(() => {
@@ -37,11 +39,15 @@ const MainPage = () => {
       fetchMessage();
     }
   }, [receiver]);
+  
+  useEffect(()=>{
+    scrollRef.current?.scrollIntoView({behavior:'smooth'})
+  },[messages])
 
   const handleSubmit = async () => {
     const data = { membersId: [receiver._id, sender], receiverId: receiver._id, senderId: sender, text };
 
-    if (receiver._id) {
+    if (receiver._id && text) {
       const response = await fetch(`http://localhost:3500/message`, {
         method: 'POST',
         headers: {
@@ -49,7 +55,7 @@ const MainPage = () => {
         },
         body: JSON.stringify(data),
       }).then((res) => res.json());
-      console.log(response);
+      setText('')
     }
   };
 
@@ -80,7 +86,11 @@ const MainPage = () => {
               <h2 className={style.chatBoxTop}>{receiver.fullName}<hr/></h2>
               <main className={style.chatBoxMiddle}>
                 {messages.map((e) => {
-                  return <Message data={e} own={e.senderId !== sender ? false : true} key={e._id} />;
+                  return (
+                    <div ref={scrollRef}>
+                    <Message data={e} own={e.senderId !== sender ? false : true} key={e._id} />
+                    </div>
+                  ) 
                 })}
               </main>
             </>
@@ -94,8 +104,9 @@ const MainPage = () => {
               onChange={(e) => {
                 setText(e.target.value);
               }}
+              value={text}
             ></textarea>
-            <button className={style.submitButton} onClick={handleSubmit}>
+            <button type='submit' className={style.submitButton} onClick={handleSubmit}>
               Send
             </button>
           </main>
