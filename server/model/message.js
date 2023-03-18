@@ -9,7 +9,7 @@ const MessageSchema = new Schema({
  sender:{
   type:SchemaTypes.String,
  },
- conversationId:{
+ text:{
   type:SchemaTypes.String,
  },
 

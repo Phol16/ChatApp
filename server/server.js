@@ -4,6 +4,8 @@ import http from 'http';
 import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import users from './routes/user.js'
+import conversation from './routes/conversation.js'
+import message from './routes/message.js'
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ const ChatPort = process.env.CHATPORT;
 const mongoDB = process.env.MONGODBURI;
 
 app.use('/users', users)
+app.use('/message', message)
+app.use('/conversation', conversation)
 
 const server = http.createServer(app); // creating a http server
 const io = new Server(server, {
