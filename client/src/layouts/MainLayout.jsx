@@ -1,8 +1,8 @@
 import React from 'react'
 import MainPage from '../pages/MainPage'
-import style from '../style/introLayout.module.css'
+import style from '../style/mainLayout.module.css'
 
-const IntroLayout = () => {
+const  MainPageLayout = () => {
   return (
     <div>
       <section className={style.mainContainer}>
@@ -12,4 +12,4 @@ const IntroLayout = () => {
   )
 }
 
-export default IntroLayout
+export default MainPageLayout

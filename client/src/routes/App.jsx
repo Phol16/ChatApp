@@ -1,13 +1,13 @@
 import{Route, Routes} from 'react-router-dom'
 import LoginLayout from '../layouts/LoginLayout'
-import MainPage from '../pages/MainPage'
+import MainPageLayout from '../layouts/MainLayout'
 
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<LoginLayout/>}/>
-      <Route path='/home' element={<MainPage/>}/>
+      <Route path='/home' element={<MainPageLayout/>}/>
     </Routes>
   )
 }

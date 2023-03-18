@@ -1,10 +1,10 @@
-.convContainer{
+.convoContainer{
   display: flex;
   padding: 5px;
   cursor: pointer;
 }
-.convContainer:hover{
-  background-color: rgb(112, 112, 112);
+.convoContainer:hover{
+  background-color: var(--quadColor);
   border-radius: 5px;
 }
 .photo{

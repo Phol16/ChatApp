@@ -4,6 +4,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --primaryColor: #213547;
+  --secondaryColor: #FDFFFC; 
+  --tertiaryColor: #648DE5;
+  --quadColor:#886F68;
 }
 *{
   margin: 0;
@@ -18,34 +23,6 @@ body{
   position: relative;
   min-width: 100%;
   min-height: 100%;
-  background-color: #213547;
-  color: white;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
 }
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
