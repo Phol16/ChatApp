@@ -94,8 +94,8 @@ const MainPage = () => {
               <main className={style.chatBoxMiddle}>
                 {messages.map((e) => {
                   return (
-                    <div ref={scrollRef}>
-                    <Message data={e} own={e.senderId !== sender ? false : true} key={e._id} />
+                    <div ref={scrollRef} key={e._id}>
+                    <Message data={e} own={e.senderId !== sender ? false : true}  />
                     </div>
                   ) 
                 })}
