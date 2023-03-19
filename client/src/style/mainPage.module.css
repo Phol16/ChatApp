@@ -6,7 +6,7 @@
 .userContainer{
   flex:5;
   padding: 5px;
-  overflow: auto;
+  overflow: hidden;
 }
 .profileContainer{
   flex:3;
@@ -20,6 +20,13 @@
 .chatBoxContainer{
   flex:5;
   border-left: 1px solid rgba(0, 0 , 0  , 0.2);
+}
+.userWrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 100%;
+  overflow: auto;
 }
 .wrapper{
   display: flex;
@@ -50,6 +57,8 @@
 }
 .chatBoxBottom{
   margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;

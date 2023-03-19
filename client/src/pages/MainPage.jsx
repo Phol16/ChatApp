@@ -63,8 +63,8 @@ const MainPage = () => {
     <div className={style.container}>
       <main className={style.detailsContainer}>
       <div className={style.userContainer}>
-        <section className={style.wrapper}>
           <h2>Users:</h2>
+        <section className={style.userWrapper}>
           {users.map((e) => {
             return (
               <button
