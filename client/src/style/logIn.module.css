@@ -1,21 +1,29 @@
 .logInContainer{
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 1fr;
+  height: 100vh;
 }
 .loginImg{
+  position: absolute;
+  z-index: -1;
   object-fit: cover;
-  width: 50vw;
+  object-position: center;
+  width: 100%;
   height: 100vh;
   clip-path: polygon(0% 0%, 53.9% 0%, 100% 100%, 0% 100%);
+  filter: brightness(0.6) blur(1px);
 }
 .logIn{
+  align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .logInHeader{
-  font-size: x-large;
+  font-size: 75px;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 4px black;
 }
 .logInForm{
   display: flex;
@@ -23,25 +31,32 @@
   gap: 5px;
 }
 .logInForm label{
-  font-size: medium;
+  font-size: xx-large;
+  text-shadow: 1px 1px 4px black;
 }
 .logInForm input{
-  font-size: small;
-  width: 100px;
+  font-size: medium;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
 }
 .logInForm button{
   width: fit-content;
   align-self: flex-end;
-  font-size: small;
+  border-radius: 10px;
+  border: white 1px unset;
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+  font-size: larger;
   font-weight: 200;
-  padding: 5px;
+  padding: 10px;
 }
-@media only screen and (min-width:768px) {
-  .logInHeader{
-    font-size: 50px;
+@media only screen and (min-width:1024px) {
+  .logInContainer{
+    grid-template-columns: repeat(2, 1fr);
   }
-  .logInForm label{
-    font-size: x-large;
+  .loginImg{
+    position: relative;
   }
   .logInForm input{
     font-size: medium;
