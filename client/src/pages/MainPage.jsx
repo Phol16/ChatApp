@@ -61,6 +61,7 @@ const MainPage = () => {
 
   return (
     <div className={style.container}>
+      <main className={style.detailsContainer}>
       <div className={style.userContainer}>
         <section className={style.wrapper}>
           <h2>Users:</h2>
@@ -79,6 +80,12 @@ const MainPage = () => {
           })}
         </section>
       </div>
+      <div className={style.profileContainer}>
+        <section className={style.profileWrapper}>
+          <Profile profile={profile}/>
+        </section>
+      </div>
+      </main>
       <div className={style.chatBoxContainer}>
         <section className={`${style.wrapper}`}>
           {receiver ? (
@@ -110,11 +117,6 @@ const MainPage = () => {
               Send
             </button>
           </main>
-        </section>
-      </div>
-      <div className={style.profileContainer}>
-        <section className={style.profileWrapper}>
-          <Profile profile={profile}/>
         </section>
       </div>
     </div>
