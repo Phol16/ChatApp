@@ -9,7 +9,9 @@ const LoginPage = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault()
     const username = e.target[0].value
-
+    console.log(username)
+    try {
+      if(username){
       const response = await fetch('http://localhost:3500/users/logIn',{
         method:'POST',
         headers:{
@@ -19,10 +21,14 @@ const LoginPage = () => {
       }).then((res)=>res.json())
       localStorage.setItem('User', response.data._id)
       navigate('/home')
-  }
-
-  return (
-    <div className={style.logInBox}>
+    }
+    } catch (error) {
+      console.log(error)
+    }
+    }
+    
+    return (
+      <div className={style.logInBox}>
       <h1 className={style.logInHeader}>Hang out <br/> anytime, anywhere</h1>
       <h3>Messenger makes it easy and fun to stay close to your favorite people.</h3>
       <form onSubmit={handleSubmit} className={style.logInForm}>
