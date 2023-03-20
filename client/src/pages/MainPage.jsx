@@ -5,6 +5,9 @@ import Profile from '../components/Profile';
 import style from '../style/mainPage.module.css';
 import { io } from 'socket.io-client'
 
+export const api = 'http://localhost:3500/';
+export const chatApp = 'http://localhost:3000'
+
 const MainPage = () => {
   const [users, setUsers] = useState([]);
   const [profile, setProfile] = useState();
@@ -20,7 +23,7 @@ const MainPage = () => {
   const sender = localStorage.getItem('User');
 
   useEffect(()=>{
-    socket.current = io('http://localhost:3000');
+    socket.current = io(`${chatApp}`);
     socket.current.on('getMessage',data=>{
       setArrivalMessages({
         senderId: data.senderId,
@@ -44,7 +47,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3500/users/profile?id=${sender}`).then((res) => res.json());
+      const response = await fetch(`${api}users/profile?id=${sender}`).then((res) => res.json());
       setProfile(response.data);
     };
     fetchData();
@@ -52,7 +55,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3500/users?sender=${sender}`).then((res) => res.json());
+      const response = await fetch(`${api}users?sender=${sender}`).then((res) => res.json());
       setUsers(response.data);
     };
     fetchData();
@@ -60,7 +63,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const fetchMessage = async () => {
-      const response = await fetch(`http://localhost:3500/message?receiverId=${receiver._id}&senderId=${sender}`).then((res) => res.json());
+      const response = await fetch(`${api}message?receiverId=${receiver._id}&senderId=${sender}`).then((res) => res.json());
       setMessages(response.data);
     };
     if (receiver) {
@@ -87,7 +90,7 @@ const MainPage = () => {
 
     try {
       if (receiver._id && text) {
-        const response = await fetch(`http://localhost:3500/message`, {
+        const response = await fetch(`${api}message`, {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',
