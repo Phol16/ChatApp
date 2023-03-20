@@ -7,16 +7,17 @@
   align-items: center;
 }
 .photo{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   object-fit: cover;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .messageTop p{
   background-color: var(--tertiaryColor);
+  color: var(--primaryColor);
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 .messageBottom{
   font-size: 12px;
@@ -30,4 +31,7 @@
 .own .messageTop p {
   background-color: rgb(224, 224, 224);
   color: rgb(37, 37, 37);
+}
+.hidden{
+  display: none;
 }

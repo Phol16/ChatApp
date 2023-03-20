@@ -67,6 +67,18 @@
 .chatBoxTop{
  font-size: xx-large;
 }
+.chatBoxTopContainer{
+  align-items: center;
+  display: flex; 
+  gap:10px;
+  padding: 15px 10px;
+}
+.photo{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .chatBoxMiddle{
   height: 100%;
   overflow: auto;

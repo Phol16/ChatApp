@@ -8,8 +8,8 @@
 
   --primaryColor: #fff;
   --secondaryColor: #213547; 
-  --tertiaryColor: #648DE5;
-  --quadColor:#886F68;
+  --tertiaryColor: #0084ff;
+  --quadColor:rgba(0,0,0,0.2);
 }
 *{
   margin: 0;
