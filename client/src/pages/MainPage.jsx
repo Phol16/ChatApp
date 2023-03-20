@@ -157,7 +157,7 @@ const MainPage = () => {
           )}
           <main className={style.chatBoxBottom}>
             <textarea
-              placeholder='write something...'
+              placeholder='Aa'
               className={style.chatMessageInput}
               onChange={(e) => {
                 setText(e.target.value);
