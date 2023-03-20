@@ -22,6 +22,7 @@
 }
 .profileBox h2{
   font-weight: 500;
+  font-size: 30px;
 }
 .profileBox h3{
   font-weight: 400;
@@ -29,4 +30,17 @@
 .logoutButton:hover{
   transform: translateY(-1.5px);
   color: red;
+}
+
+@media only screen and (max-width:768px) {
+  .photo{
+    width: 80px;
+    height: 80px;
+  }
+  .profileBox h2{
+    font-size: medium;
+  }
+  .profileBox h3{
+    font-size: small;
+  }
 }

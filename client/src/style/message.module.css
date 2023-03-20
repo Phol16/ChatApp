@@ -1,37 +1,47 @@
-.message{
+.message {
   display: flex;
   flex-flow: column wrap;
+  margin: 10px 0;
 }
-.messageTop{
+.messageTop {
   display: flex;
   align-items: center;
 }
-.photo{
+.photo {
   width: 40px;
   height: 40px;
   border-radius: 100%;
   object-fit: cover;
   margin-right: 10px;
 }
-.messageTop p{
+.messageTop p {
   background-color: var(--tertiaryColor);
   color: var(--primaryColor);
   padding: 10px;
   border-radius: 20px;
 }
-.messageBottom{
+.messageBottom {
   font-size: 12px;
   margin: 5px;
 }
-.own{
+.own {
   display: flex;
   flex-flow: column wrap;
   align-items: flex-end;
+  margin: 10px 0;
 }
 .own .messageTop p {
   background-color: rgb(224, 224, 224);
   color: rgb(37, 37, 37);
 }
-.hidden{
+.hidden {
   display: none;
+}
+@media only screen and (max-width: 768px) {
+  .messageTop p {
+    font-size: small;
+  }
+  .messageBottom {
+    font-size: 9px;
+  }
 }

@@ -1,28 +1,28 @@
-.convoContainer{
+.convoContainer {
   display: flex;
   padding: 10px;
   cursor: pointer;
 }
-.convoContainer:hover{
-  background-color: rgba(0, 0, 0, .09);
+.convoContainer:hover {
+  background-color: rgba(0, 0, 0, 0.09);
   border-radius: 5px;
 }
-.profileStatus{
+.profileStatus {
   display: flex;
   margin-right: 15px;
 }
-.photo{
-  width: 40px;
-  height: 40px;
+.photo {
+  max-width: 40px;
+  max-height: 40px;
   border-radius: 100%;
   object-fit: cover;
 }
-.convoContainer p{
+.convoContainer p {
   font-weight: 700;
   font-size: medium;
   margin-right: 5px;
 }
-.offline{
+.offline {
   width: 10px;
   height: 10px;
   background-color: gray;
@@ -30,11 +30,16 @@
   margin-left: -5px;
   align-self: flex-end;
 }
-.online{
+.online {
   width: 10px;
   height: 10px;
   background-color: green;
   border-radius: 50%;
   margin-left: -5px;
   align-self: flex-end;
+}
+@media only screen and (max-width: 768px) {
+  .convoContainer p {
+    display: none;
+  }
 }
