@@ -23,7 +23,7 @@ const MainPage = () => {
   const sender = localStorage.getItem('User');
 
   useEffect(()=>{
-    socket.current = io(`${chatApp}`);
+    socket.current = io(chatApp);
     socket.current.on('getMessage',data=>{
       setArrivalMessages({
         senderId: data.senderId,
