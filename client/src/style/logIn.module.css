@@ -131,6 +131,7 @@
   }
   .logInBox button{
     font-size: small;
+    width: 100%;
   }
   .label{
     font-size: small;
