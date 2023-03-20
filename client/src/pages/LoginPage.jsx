@@ -12,7 +12,7 @@ const LoginPage = () => {
     const username = e.target[0].value
     try {
       if(username){
-      const response = await fetch('http://localhost:3500/users/logIn',{
+      const response = await fetch('https://minimessengerserver.onrender.com/users/logIn',{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'

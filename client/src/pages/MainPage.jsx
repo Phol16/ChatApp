@@ -5,8 +5,8 @@ import Profile from '../components/Profile';
 import style from '../style/mainPage.module.css';
 import { io } from 'socket.io-client'
 
-export const api = 'http://localhost:3500/';
-export const chatApp = 'http://localhost:3000'
+export const api = 'https://minimessengerserver.onrender.com/';
+export const chatApp = 'https://minimessengersocket.onrender.com'
 
 const MainPage = () => {
   const [users, setUsers] = useState([]);
