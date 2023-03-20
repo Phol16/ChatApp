@@ -1,9 +1,7 @@
 .profileBox{
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   align-items: center;
-  gap: 5px;
-  justify-content: center;
 }
 .photo{
   width: 100px;
@@ -12,12 +10,21 @@
   object-fit: cover;
 }
 .logoutButton{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   background: transparent;
   border: none;
   color: var(--secondaryColor);
   padding: 3px;
   cursor: pointer;
   transition: transform 0.2s ease;
+}
+.profileBox h2{
+  font-weight: 500;
+}
+.profileBox h3{
+  font-weight: 400;
 }
 .logoutButton:hover{
   transform: translateY(-1.5px);

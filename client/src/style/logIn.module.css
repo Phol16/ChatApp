@@ -92,6 +92,7 @@
   display: flex;
   width: fit-content;
   gap: 10px;
+  font-size: smaller;
 }
 .label input{
   border-radius: 10px;
