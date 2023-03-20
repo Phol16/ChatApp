@@ -3,16 +3,43 @@ import Conversation from '../components/Conversation';
 import Message from '../components/Message';
 import Profile from '../components/Profile';
 import style from '../style/mainPage.module.css';
+import { io } from 'socket.io-client'
 
 const MainPage = () => {
   const [users, setUsers] = useState([]);
   const [profile, setProfile] = useState();
   const [receiver, setReceiver] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [update, setUpdate] = useState(Date.now());
+  const [arrivalMessages, setArrivalMessages] = useState([]);
+  const socket = useRef()
   const [text, setText] = useState('');
 
   const scrollRef = useRef()
   const sender = localStorage.getItem('User');
+
+  useEffect(()=>{
+    socket.current = io('http://localhost:3000');
+    socket.current.on('getMessage',data=>{
+      setArrivalMessages({
+        senderId: data.senderId,
+        receiver:data.receiverId,
+        text: data.text,
+        createdAt:Date.now(),
+      })
+    })
+  },[])
+
+  useEffect(()=>{
+    arrivalMessages && setMessages(prev=>[...prev,arrivalMessages])
+  },[arrivalMessages])
+
+  useEffect(()=>{
+    socket.current.emit('addUser', sender)
+    socket.current.on('getUsers', users=>{
+      console.log(users)
+    })
+  },[sender])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +65,7 @@ const MainPage = () => {
     if (receiver) {
       fetchMessage();
     }
-  }, [receiver]);
+  }, [receiver, update]);
   
   useEffect(()=>{
     scrollRef.current?.scrollIntoView({behavior:'smooth'})
@@ -47,17 +74,30 @@ const MainPage = () => {
   const handleSubmit = async () => {
     const data = { membersId: [receiver._id, sender], receiverId: receiver._id, senderId: sender, text };
 
-    if (receiver._id && text) {
-      const response = await fetch(`http://localhost:3500/message`, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then((res) => res.json());
-      setText('')
+      socket.current.emit('sendMessage',{
+        senderId:sender,
+        receiverId:receiver._id,
+        text,
+      })
+
+    try {
+      if (receiver._id && text) {
+        const response = await fetch(`http://localhost:3500/message`, {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }).then((res) => res.json());
+        console.log(response)
+        setText('')
+        setUpdate(Date.now())
+      }
+    } catch (error) {
+      console.log(error)
     }
   };
+
 
   return (
     <div className={style.container}>
@@ -82,7 +122,7 @@ const MainPage = () => {
       </div>
       <div className={style.profileContainer}>
         <section className={style.profileWrapper}>
-          <Profile profile={profile}/>
+          <Profile profile={profile} socket={socket}/>
         </section>
       </div>
       </main>
@@ -113,7 +153,7 @@ const MainPage = () => {
               }}
               value={text}
             ></textarea>
-            <button type='submit' className={style.submitButton} onClick={handleSubmit}>
+            <button type='submit' className={style.submitButton} onClick={receiver ? handleSubmit : ()=>{}}>
               Send
             </button>
           </main>

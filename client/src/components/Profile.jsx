@@ -2,11 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from '../style/profile.module.css'
 
-const Profile = ({profile}) => {
+const Profile = ({profile,socket}) => {
   const navigate = useNavigate()
 
   const handleLogout = ()=>{
     localStorage.removeItem('User')
+    socket.current.disconnect()
     navigate('/')
   }
 
