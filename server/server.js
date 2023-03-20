@@ -28,7 +28,6 @@ const io = new Server(server, {
 let usersSocket = [];
 
 const addUser = (userId, socketId) => {
-  console.log(userId)
   !usersSocket.some((user) => user.usersId === userId) && usersSocket.push({ userId, socketId });
 };
 const removeUser = (socketId) => {
