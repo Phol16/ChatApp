@@ -4,9 +4,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  font-family: Calibre, Helvetica Neue, Segoe UI, Helvetica, Arial, Lucida Grande, sans-serif;;
 
-  --primaryColor: #213547;
-  --secondaryColor: #FDFFFC; 
+  --primaryColor: #fff;
+  --secondaryColor: #213547; 
   --tertiaryColor: #648DE5;
   --quadColor:#886F68;
 }

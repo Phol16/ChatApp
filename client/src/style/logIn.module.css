@@ -1,69 +1,139 @@
-.logInContainer{
+.logInContainer {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  height: 100vh;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: minmax(100px, auto);
+  grid-template-areas: 
+  'nav nav'
+  'login image'
+  'footer footer';
+  margin: auto;
+  max-width: 1200px;
+  height: 100svh;
+  padding: 10px;
 }
-.loginImg{
-  position: absolute;
-  z-index: -1;
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 100vh;
-  clip-path: polygon(0% 0%, 53.9% 0%, 100% 100%, 0% 100%);
-  filter: brightness(0.6) blur(1px);
-}
-.logIn{
-  align-self: center;
+.navBar{
+  grid-area: nav;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
-.logInHeader{
+.navBar img{
+  width: 40px;
+}
+.navBar p{
+  font-weight: 500;
+}
+.logInImg {
+  padding-top: 40px;
+ grid-area: image;
+ width: 100%;
+ max-width: 600px;
+}
+.logInBox{
+  padding: 40px 10px 10px 10px;
+  grid-area: login;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.logInHeader {
   font-size: 75px;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 4px black;
+  width: fit-content;
+  background: linear-gradient(81.84deg, #0099ff -9.4%, #a033ff 51.57%, #ff5280 84.07%, #ff7061 90.59%);
+  color: transparent;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  font-weight: 640;
+  line-height: 80px;
+}
+.logInBox h3{
+  font-weight: 400;
+  font-size: medium;
 }
 .logInForm{
   display: flex;
-  flex-flow: column wrap;
-  gap: 5px;
+  flex-direction: column;
+  gap: 20px;
 }
-.logInForm label{
-  font-size: xx-large;
-  text-shadow: 1px 1px 4px black;
-}
-.logInForm input{
-  font-size: medium;
+.logInForm input {
+  background: rgba(0, 0, 0, .04);
+  border: none;
+  font-size: small;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   width: 100%;
+  max-width: 300px;
 }
-.logInForm button{
+.logInForm input:focus {
+  border: 1px solid #0084ff;
+  outline: #0084ff;
+}
+.logInForm button {
   width: fit-content;
-  align-self: flex-end;
-  border-radius: 10px;
+  border-radius: 40px;
+  border: 1px solid #0084ff;
   border: white 1px unset;
-  background-color: var(--primaryColor);
-  color: var(--secondaryColor);
+  background-color: #0084ff;
+  color: white;
   font-size: larger;
   font-weight: 200;
-  padding: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
-@media only screen and (min-width:1024px) {
-  .logInContainer{
-    grid-template-columns: repeat(2, 1fr);
+.logInForm button:hover{
+  background-color: #4d4dff;
+  border-color: #4d4dff;
+}
+.label{
+  display: flex;
+  width: fit-content;
+  gap: 10px;
+}
+.label input{
+  border-radius: 10px;
+  width: fit-content; 
+}
+.footer{
+  grid-area: footer;
+  margin: auto;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1024px) {
+  .logInContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    'nav'
+    'login'
+    'image'
+    'footer';
   }
-  .loginImg{
-    position: relative;
+  .logInBox{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
-  .logInForm input{
-    font-size: medium;
-    width: 300px;
+  .logInHeader{
+    font-size: 35px;
+    text-align: center;
   }
-  .logInForm button{
-    font-size: large;
-    font-weight: 200;
+  .logInImg{
+    margin: auto;
+  }
+  .logInBox button{
+    font-size: small;
+  }
+  .label{
+    font-size: small;
+  }
+  .footer{
+    font-size: smaller;
+  }
+  .footer span{
+    display: none;
   }
 }

@@ -1,16 +1,23 @@
-import React from 'react'
-import LoginPage from '../pages/LoginPage'
-import style from '../style/logIn.module.css'
+import React from 'react';
+import LoginPage from '../pages/LoginPage';
+import style from '../style/logIn.module.css';
 
 const LoginLayout = () => {
   return (
     <div className={style.logInContainer}>
-      <img loading='lazy' decoding='async' src='https://images.unsplash.com/photo-1568712675977-a286276f4f44?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80' className={style.loginImg}/>
-      <main className={style.logIn}>
-      <LoginPage/>
-      </main>
+      <nav className={style.navBar}>
+        <img src='https://scontent.fcgy1-1.fna.fbcdn.net/v/t39.8562-6/120009688_325579128711709_1736249742330805861_n.png?_nc_cat=1&ccb=1-7&_nc_sid=6825c5&_nc_ohc=qQwstLq8YaUAX_TG54g&_nc_ht=scontent.fcgy1-1.fna&oh=00_AfBEWFNftz6E7NyygKpCbjJeL2hSdVjU4jQQJ6MjGO1NoQ&oe=641CCE3D' alt='Logo' />
+        <p>Almost Messenger</p>
+      </nav>
+      <LoginPage />
+      <img src='https://scontent.fmnl25-2.fna.fbcdn.net/v/t39.8562-6/120973513_338186077283942_8148888802958728934_n.png?_nc_cat=102&ccb=1-7&_nc_sid=6825c5&_nc_ohc=u8ETh_dkhsoAX-vbPzp&_nc_ht=scontent.fmnl25-2.fna&oh=00_AfDC3f7v0XOn8CLfTY5mYXUxF6x5IJACLEsaiUPTi3KHxg&oe=641C8767' alt='Photo' className={style.logInImg} />
+      <footer className={style.footer}>
+        <p>
+          © Messenger clone. <span> The Apple and Google Play logos are trademarks of their respective owners. </span>
+        </p>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default LoginLayout
+export default LoginLayout;
