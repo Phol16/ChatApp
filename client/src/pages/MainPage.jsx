@@ -12,6 +12,7 @@ const MainPage = () => {
   const [messages, setMessages] = useState([]);
   const [update, setUpdate] = useState(Date.now());
   const [arrivalMessages, setArrivalMessages] = useState([]);
+  const [onlineUser, setOnlineUser] = useState([]);
   const socket = useRef()
   const [text, setText] = useState('');
 
@@ -37,7 +38,7 @@ const MainPage = () => {
   useEffect(()=>{
     socket.current.emit('addUser', sender)
     socket.current.on('getUsers', users=>{
-      console.log(users)
+      setOnlineUser(users)
     })
   },[sender])
 
@@ -72,13 +73,17 @@ const MainPage = () => {
   },[messages])
 
   const handleSubmit = async () => {
+    if(receiver && text){
     const data = { membersId: [receiver._id, sender], receiverId: receiver._id, senderId: sender, text };
 
+    onlineUser.map((e)=>{
+      e.userId ===receiver._id ? 
       socket.current.emit('sendMessage',{
         senderId:sender,
         receiverId:receiver._id,
         text,
-      })
+      }) : null
+    })
 
     try {
       if (receiver._id && text) {
@@ -96,6 +101,7 @@ const MainPage = () => {
     } catch (error) {
       console.log(error)
     }
+  }
   };
 
 
@@ -153,7 +159,7 @@ const MainPage = () => {
               }}
               value={text}
             ></textarea>
-            <button type='submit' className={style.submitButton} onClick={receiver ? handleSubmit : ()=>{}}>
+            <button type='submit' className={style.submitButton} onClick={handleSubmit}>
               Send
             </button>
           </main>

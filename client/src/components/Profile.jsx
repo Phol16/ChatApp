@@ -7,7 +7,7 @@ const Profile = ({profile,socket}) => {
 
   const handleLogout = ()=>{
     localStorage.removeItem('User')
-    socket.current.disconnect()
+    socket.current.emit('disconnectMe', profile._id)
     navigate('/')
   }
 
