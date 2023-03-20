@@ -102,6 +102,10 @@
   margin: auto;
   font-weight: 500;
 }
+.error{
+  font-size: small;
+  color: red;
+}
 
 @media only screen and (max-width: 1024px) {
   .logInContainer {

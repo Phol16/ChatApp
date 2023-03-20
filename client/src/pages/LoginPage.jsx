@@ -4,12 +4,12 @@ import {useNavigate} from 'react-router-dom'
 
 const LoginPage = () => {
   const[keepmelogin, setKeepmelogin] = useState(false)
+  const[error, setError] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = async(e)=>{
     e.preventDefault()
     const username = e.target[0].value
-    console.log(username)
     try {
       if(username){
       const response = await fetch('http://localhost:3500/users/logIn',{
@@ -21,9 +21,9 @@ const LoginPage = () => {
       }).then((res)=>res.json())
       localStorage.setItem('User', response.data._id)
       navigate('/home')
-    }
+    }else{setError('Input a username')}
     } catch (error) {
-      console.log(error)
+      setError(error)
     }
     }
     
@@ -32,7 +32,8 @@ const LoginPage = () => {
       <h1 className={style.logInHeader}>Hang out <br/> anytime, anywhere</h1>
       <h3>Messenger makes it easy and fun to stay close to your favorite people.</h3>
       <form onSubmit={handleSubmit} className={style.logInForm}>
-      <input type="username" id='username' name='username' placeholder='Username'/>
+        {error && <p className={style.error}>{error}</p>}
+      <input type="username" id='username' name='username' placeholder='Username' onChange={()=>{setError('')}}/>
       <button type='submit'>Enter</button>
       <label htmlFor="keepmelogin" className={style.label} onClick={()=>{setKeepmelogin(!keepmelogin)}}>
       <input type="radio" name='keepmelogin' username='keepmelogin' id='keepmelogin' checked={keepmelogin} onChange={()=>{setKeepmelogin(!keepmelogin)}}/> 
