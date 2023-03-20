@@ -109,7 +109,8 @@ const MainPage = () => {
     <div className={style.container}>
       <main className={style.detailsContainer}>
       <div className={style.userContainer}>
-          <h2>Users:</h2>
+          <h2>Chats</h2>
+          <input type="text" placeholder='Search' className={style.search}/>
         <section className={style.userWrapper}>
           {users.map((e) => {
             return (
@@ -120,7 +121,7 @@ const MainPage = () => {
                 key={e._id}
                 className={style.userButton}
               >
-                <Conversation name={e.fullName} />
+                <Conversation data={e} online={onlineUser}/>
               </button>
             );
           })}

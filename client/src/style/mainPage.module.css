@@ -9,13 +9,13 @@
   overflow: hidden;
 }
 .profileContainer{
-  flex:3;
+  flex:2;
   border-top: 1px solid rgba(0, 0 , 0  , 0.2);
 }
 .detailsContainer{
   display: flex;
   flex-direction: column;
-  flex: 2;
+  flex: 1;
 }
 .chatBoxContainer{
   flex:5;
@@ -33,6 +33,14 @@
   flex-direction: column;
   padding: 10px;
   height: 100%;
+}
+.search{
+  padding: 5px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(0, 0 , 0  , 0.1);
+  margin: 10px 0;
 }
 .userButton{
   background-color: transparent;
