@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import LoginPage from '../pages/LoginPage';
 import style from '../style/logIn.module.css';
 
 const LoginLayout = () => {
+  const [open,setOpen]=useState(true)
+  const [arrow,setArrow]=useState('⌃ Click Me')
+
+  useMemo(()=>{
+  open ? setArrow('⌄ Hide'):setArrow('⌃ Open')
+  },[open])
   return (
     <div className={style.logInContainer}>
       <nav className={style.navBar}>
@@ -16,6 +22,7 @@ const LoginLayout = () => {
           © Messenger clone. <span> The Apple and Google Play logos are trademarks of their respective owners. </span>
         </p>
       </footer>
+      <section className={style.fixedInfo} onClick={()=>{setOpen(!open)}}><span style={{display:`${open ? 'inline-block' : 'none'}`}}>To test the realtime feature in mini messenger. use different browser/application to log in as different user<br/><br/>initial request from server will take time, please wait. <br/> thank you!<br/><br/></span>{arrow}</section>
     </div>
   );
 };
