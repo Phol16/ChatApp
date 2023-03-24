@@ -26,7 +26,7 @@ const MainPage = () => {
     socket.current = io(chatApp);
     socket.current.on('getMessage', (data) => {
       setArrivalMessages({
-        membersId: [data.receiverId,data.senderId],
+        membersId: [data.receiverId, data.senderId],
         senderId: data.senderId,
         receiver: data.receiverId,
         text: data.text,
@@ -125,7 +125,7 @@ const MainPage = () => {
                   key={index}
                   className={style.userButton}
                 >
-                  <Conversation data={e} online={onlineUser} key={index}/>
+                  <Conversation data={e} online={onlineUser} key={index} />
                 </button>
               );
             })}
@@ -158,13 +158,13 @@ const MainPage = () => {
               </main>
               <main className={style.chatBoxMiddle}>
                 {messages.map((e) => {
-                  console.log(e)
-                  if(e.membersId?.includes(receiver._id)){
-                  return (
-                    <div ref={scrollRef} key={e._id}>
-                      <Message data={e} own={e.senderId !== sender ? false : true} />
-                    </div>
-                  );
+                  console.log(e);
+                  if (e.membersId?.includes(receiver._id)) {
+                    return (
+                      <div ref={scrollRef} key={e._id}>
+                        <Message data={e} own={e.senderId !== sender ? false : true} />
+                      </div>
+                    );
                   }
                 })}
               </main>
