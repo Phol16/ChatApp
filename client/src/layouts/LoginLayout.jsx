@@ -14,11 +14,11 @@ const LoginLayout = () => {
   return (
     <div className={style.logInContainer}>
       <nav className={style.navBar}>
-        <img src={logo} alt='Logo' />
+        <img loading='lazy' decoding='async' src={logo} alt='Logo' />
         <p>Almost Messenger</p>
       </nav>
       <LoginPage />
-      <img src={image} alt='Photo' className={style.logInImg} />
+      <img loading='lazy' decoding='async' src={image} alt='Photo' className={style.logInImg} />
       <footer className={style.footer}>
         <p>
           © Mini Messenger. <span> The logos are trademarks of their respective owners. </span>
