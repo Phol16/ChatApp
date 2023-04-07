@@ -20,7 +20,7 @@ const MainPage = () => {
   const [text, setText] = useState('');
 
   const scrollRef = useRef();
-  const sender = localStorage.getItem('User');
+  const sender = sessionStorage.getItem('User');
 
   useEffect(() => {
     socket.current = io(chatApp);

@@ -21,7 +21,7 @@ const LoginPage = () => {
           },
           body: JSON.stringify({ username }),
         }).then((res) => res.json());
-        localStorage.setItem('User', response.data._id);
+        sessionStorage.setItem('User', response.data._id);
         navigate('/home');
         setLoad(false);
       } else {

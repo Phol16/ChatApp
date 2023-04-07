@@ -6,7 +6,7 @@ const Profile = ({ profile, socket }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('User');
+    sessionStorage.removeItem('User');
     socket.current.emit('disconnectMe', profile._id);
     navigate('/');
   };
